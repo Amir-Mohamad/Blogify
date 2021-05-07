@@ -6,3 +6,6 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'updated', 'cover')
     list_filter = ('created', 'updated')
     prepopulated_fields = {'slug': ('title',)}
+
+
+admin.site.register(Category)
