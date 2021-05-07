@@ -26,7 +26,7 @@ class Article(models.Model):
     """
         The main article model
     """
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
