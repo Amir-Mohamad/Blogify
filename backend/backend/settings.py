@@ -141,6 +141,10 @@ REST_FRAMEWORK = {
 }
 
 
+# Custom
+MAX_UPLOAD_ADMIN_SIZE = 2097152  # 2 MB (2000000)
+
+
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 

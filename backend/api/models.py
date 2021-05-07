@@ -14,6 +14,7 @@ class Category(models.Model):
     """
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
+    is_active = models.BooleanField(default=True, null=True)
 
     class Meta:
         verbose_name = 'Category'
@@ -27,6 +28,10 @@ class Article(models.Model):
     """
         The main article model
     """
+    STATUS_CHOICES = (
+        ('d', 'draft'),
+        ('p', "publish"),
+    )
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=100)
@@ -35,6 +40,8 @@ class Article(models.Model):
     image = models.ImageField(upload_to='images/')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True, null=True)
+
 
     def __str__(self):
         return f'Article {self.title} created at {self.created}'
