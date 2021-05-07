@@ -157,3 +157,7 @@ JWT_AUTH_COOKIE = 'access'
 JWT_AUTH_REFRESH_COOKIE = 'refresh'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# WARNING: Theres a bug in dj-rest-auth that raises "template_name() ...... " error,
+#  while sending the email for accepting the following link in email
