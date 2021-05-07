@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.html import format_html
 from ckeditor.fields import RichTextField
+from .validators import validate_image
 
 
 User = get_user_model()
@@ -37,7 +38,7 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
     description = RichTextField()
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/', validators=[validate_image])
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True, null=True)
