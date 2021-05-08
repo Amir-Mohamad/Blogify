@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from .models import Article, Category
-from django.contrib.auth import get_user_model
 from drf_dynamic_fields import DynamicFieldsMixin
 
 

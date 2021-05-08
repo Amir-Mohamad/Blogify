@@ -1,8 +1,6 @@
 backend:
-        writting permission
         category view
         category serializer
-        HyperLink user, category fields in serializer.py
         more models
         writting tests
         user model

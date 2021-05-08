@@ -43,10 +43,10 @@ class Article(models.Model):
     updated = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True, null=True)
 
-
     def __str__(self):
         return f'Article {self.title} created at {self.created}'
 
+    # for showing the article image
     def cover(self):
         if self.image:
             return format_html("<img width=40 height=40 style='border-radius: 20px;' src='{}'>".format(self.image.url))
