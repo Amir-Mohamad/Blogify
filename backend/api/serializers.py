@@ -25,5 +25,6 @@ class ArticleSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
 
 
 class CategorySerializer(DynamicFieldsMixin, serializers.ModelSerializer):
-    model = Category
-    fields = '__all__'
+    class Meta:
+        model = Category
+        fields = '__all__'
