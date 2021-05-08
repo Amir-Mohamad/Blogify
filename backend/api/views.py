@@ -23,8 +23,13 @@ class EndPointsAPI(APIView):
         return Response(endpoints, status=status.HTTP_200_OK)
 
 
-class ArticleViewset(viewsets.ModelViewSet):
+class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     permission_classes = [IsAuthenticated,]
 
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.filter(is_active=True)
+    serializer_class = CategorySerializer
+    permission_classes = [IsAuthenticated,]

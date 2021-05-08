@@ -4,7 +4,7 @@ from . import views
 
 
 router = DefaultRouter()
-router.register(r'articles_list', views.ArticleViewset, basename='articles_list')
+router.register(r'articles_list', views.ArticleViewSet, basename='articles_list')
 
 
 
