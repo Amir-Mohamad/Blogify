@@ -5,6 +5,7 @@ from . import views
 
 router = DefaultRouter()
 router.register(r'articles_list', views.ArticleViewSet, basename='articles_list')
+router.register(r'category_list', views.CategoryViewSet, basename="category_list")
 
 
 
