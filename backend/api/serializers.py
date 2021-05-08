@@ -24,13 +24,6 @@ class ArticleSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
         fields = '__all__'
 
 
-# class CategorySerializer(DynamicFieldsMixin, serializers.ModelSerializer):
-#     def get_category(self, obj):
-#         return {
-#             "title": obj.category.title,
-#         }
-
-#     author = serializers.SerializerMethodField("get_category")
-
-#     model = Category
-#     fields = '__all__'
+class CategorySerializer(DynamicFieldsMixin, serializers.ModelSerializer):
+    model = Category
+    fields = '__all__'
