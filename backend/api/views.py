@@ -20,6 +20,17 @@ class EndPointsAPI(APIView):
         endpoints = [
             '127.0.0.1:8000/api/',
             '127.0.0.1:8000/api/article_list',
+            '127.0.0.1:8000/api/rest-auth',
+            'api/rest-auth/password/reset/',
+            'api/rest-auth/password/reset/confirm/',
+            'api/rest-auth/login/',
+            'api/rest-auth/logout/',
+            'api/rest-auth/user/',
+            'api/rest-auth/password/change/',
+            'api/rest-auth/token/verify/',
+            'api/rest-auth/token/refresh/',
+            'api/rest-auth/registration/',
+            'api/rest-auth/password/reset/confirm/',
         ]
         return Response(endpoints, status=status.HTTP_200_OK)
 

@@ -1,6 +1,4 @@
 backend:
-        category view
-        category serializer
         more models
         writting tests
         user model
