@@ -53,10 +53,20 @@ class Article(models.Model):
         return "nothing"
     cover.short_description = "cover"
 
+    def likes_count(self):
+        return self.a_like.count()
+
+    def user_can_like(self, user):
+        user_like = user.u_like.all()
+        qs = user_like.filter(post=self)
+        if qs.exists():
+            return True
+        return False
+
 
 class Like(models.Model):
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    article = models.ForeignKey(Article, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name="u_like")
+    article = models.ForeignKey(Article, on_delete=models.DO_NOTHING, related_name="a_like")
 
     def __str__(self):
         return f'{self.user} likes {self.article}'
