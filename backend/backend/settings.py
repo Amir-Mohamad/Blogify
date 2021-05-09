@@ -1,20 +1,11 @@
 from pathlib import Path
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 import os
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-8b-k5rw#3^3r(4ohf6nbzjxu!v%0ri3c+q07i)04dbl39yo+n&'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -75,20 +66,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -105,10 +88,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -119,14 +98,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = '/static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
@@ -136,20 +108,15 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'rest_framework.authentication.TokenAuthentication',
-        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
     ]
 }
 
-
 # Custom
 MAX_UPLOAD_ADMIN_SIZE = 2097152  # 2 MB (2000000)
 
-
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
-
 
 REST_USE_JWT = True
 
@@ -157,7 +124,6 @@ JWT_AUTH_COOKIE = 'access'
 JWT_AUTH_REFRESH_COOKIE = 'refresh'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 
 # WARNING: Theres a bug in dj-rest-auth that raises "template_name() ...... " error,
 #  while sending the email for accepting the following link in email

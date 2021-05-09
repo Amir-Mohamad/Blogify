@@ -52,3 +52,11 @@ class Article(models.Model):
             return format_html("<img width=40 height=40 style='border-radius: 20px;' src='{}'>".format(self.image.url))
         return "nothing"
     cover.short_description = "cover"
+
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    article = models.ForeignKey(Article, on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return f'{self.user} likes {self.article}'
